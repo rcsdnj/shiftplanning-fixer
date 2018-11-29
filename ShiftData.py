@@ -13,7 +13,7 @@ class ShiftData:
          self.parseFromText(shiftText)
     
     def parseFromText(self, txt):
-        regex = r"^(?P<durationHours>(\d+h))*(, )*(?P<durationMinutes>\d+m)* (?P<startTime>\d+:\d+) (?P<endTime>\d+:\d+) (?P<month>\D+)(?P<dayOfMonth>\d+)\s+(?P<breakHours>(\d+h))*(, )*(?P<breakMinutes>\d+m)*"
+        regex = r"^\s*(?P<durationHours>(\d+h))*(, )*(?P<durationMinutes>\d+m)* (?P<startTime>\d+:\d+) (?P<endTime>\d+:\d+) (?P<month>\D+)(?P<dayOfMonth>\d+)\s+(?P<breakHours>(\d+h))*(, )*(?P<breakMinutes>\d+m)*"
         compiledPattern = re.compile(regex)
         matches = re.search(compiledPattern, txt)
         startTimeStr = matches.group("startTime")
